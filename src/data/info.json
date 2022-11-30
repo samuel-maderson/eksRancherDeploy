@@ -1,0 +1,6 @@
+{
+    "nodeType": "t3.medium",
+    "nodeMin": 3,
+    "nodeMax": 4,
+    "clusterName": "eks-cluster01"
+}

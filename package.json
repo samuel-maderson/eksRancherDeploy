@@ -1,0 +1,26 @@
+{
+  "name": "eksrancherdeploy",
+  "version": "1.0.0",
+  "description": "The purpose of this code is to create an infraestructure with eks, rancher, alb",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc && nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelmaderson/eksRancherDeploy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuelmaderson/eksRancherDeploy/issues"
+  },
+  "homepage": "https://github.com/samuelmaderson/eksRancherDeploy#readme",
+  "dependencies": {
+    "child_process": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9"
+  }
+}
