@@ -1,26 +1,46 @@
 import Root from './root';
-import { Iinfo } from '../types/infoType';
+import { Iinfo, ICallback } from '../types/main';
 
 class Eks extends Root {
+
     constructor(infoData: Iinfo) {
         super(infoData);
     }
 
-    public createCluster(callback: (stdout: string) => string | void) {
+    public createCluster(callback: ICallback) {
 
         let command = `
             eksctl create cluster \
-                --name ${this.infoData.clusterName} --nodeMin ${this.infoData.nodeMin} \
-                --nodeMax ${this.infoData.nodeMax}  --nodeType ${this.infoData.nodeType}
+                --name ${this.infoData.clusterName} --nodes-min ${this.infoData.nodesMin} \
+                --nodes-max ${this.infoData.nodesMax}  --node-type ${this.infoData.nodeType}
         `
-        console.log(command);
 
-        super.shellCommand('ls -lht', (stderr: string, stdout: string) => {
-            (stderr) && console.log(stderr);
+        super.shellCommand(command, (stdout, stderr) => {
 
-            return callback(stdout);
+            return callback(stdout, stderr);
         }); 
     }
+
+
+    public setKubeconfig(callback: ICallback) {
+        let command = `
+            aws eks update-kubeconfig --region ${this.infoData.AWSCredentials.aws_default_region} --name ${this.infoData.clusterName}
+        `
+        super.shellCommand(command, (stdout, stderr) => {
+            callback(stdout, stderr);
+        });
+    }
+
+
+    public showNodes(callback: ICallback) {
+        let command = `
+            kubectl get nodes
+        `
+        super.shellCommand(command, (stdout, stderr) => {
+            return callback(stdout, stderr);
+        });
+    }
+
 }
 
 export default Eks;

@@ -1,5 +1,5 @@
 import { exec } from 'child_process';
-import { Iinfo } from '../types/infoType';
+import { Iinfo, ICallback } from '../types/main';
 
 
 class Root {
@@ -10,15 +10,12 @@ class Root {
         this.infoData = infoData;
     }
 
-    public shellCommand(command: string, callback: (stderr: string, stdout: string) => void) {
+    public shellCommand(command: string, callback: ICallback) {
 
         exec(command, (err, stdout, stderr) => {
-            (err) && console.error(err);
-            (stderr) && console.error(err);
             
-            callback(stderr, stdout);
+            callback(stdout, stderr);
         });
-
     }
 
 }

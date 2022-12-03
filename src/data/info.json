@@ -1,6 +1,11 @@
 {
     "nodeType": "t3.medium",
-    "nodeMin": 3,
-    "nodeMax": 4,
-    "clusterName": "eks-cluster01"
+    "nodesMin": 3,
+    "nodesMax": 4,
+    "clusterName": "eks-cluster03",
+    "AWSCredentials": {
+        "aws_access_key_id": "",
+        "aws_secret_access_key": "",
+        "aws_default_region": "us-east-1"
+    }
 }
