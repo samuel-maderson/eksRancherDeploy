@@ -1,5 +1,5 @@
 import Root from './root';
-import { Iinfo, ICallback } from '../types/main';
+import { Iinfo, ICallback, Ipromise } from '../types/main';
 
 class Eks extends Root {
 
@@ -7,18 +7,24 @@ class Eks extends Root {
         super(infoData);
     }
 
-    public createCluster(callback: ICallback) {
+    public createCluster() {
 
-        let command = `
-            eksctl create cluster \
-                --name ${this.infoData.clusterName} --nodes-min ${this.infoData.nodesMin} \
-                --nodes-max ${this.infoData.nodesMax}  --node-type ${this.infoData.nodeType}
-        `
+        const promise = new Promise((resolve, reject) => {
+            let command = `
+                eksctl create cluster \
+                    --name ${this.infoData.clusterName} --nodes-min ${this.infoData.nodesMin} \
+                    --nodes-max ${this.infoData.nodesMax}  --node-type ${this.infoData.nodeType}
+            `
 
-        super.shellCommand(command, (stdout, stderr) => {
-
-            return callback(stdout, stderr);
-        }); 
+            super.shellCommand(command, (stdout, stderr) => {
+                let obj = {
+                    stdout: stdout,
+                    stderr: stderr
+                }
+                resolve(obj);
+            }); 
+        })
+        return promise;
     }
 
 
