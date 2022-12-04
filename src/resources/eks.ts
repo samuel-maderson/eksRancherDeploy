@@ -1,5 +1,5 @@
 import Root from './root';
-import { Iinfo, ICallback, Ipromise } from '../types/main';
+import { Iinfo, IPromiseResponse} from '../types/main';
 
 class Eks extends Root {
 
@@ -7,9 +7,10 @@ class Eks extends Root {
         super(infoData);
     }
 
-    public createCluster() {
+    public createCluster(): any {
 
         const promise = new Promise((resolve, reject) => {
+
             let command = `
                 eksctl create cluster \
                     --name ${this.infoData.clusterName} --nodes-min ${this.infoData.nodesMin} \
@@ -17,36 +18,65 @@ class Eks extends Root {
             `
 
             super.shellCommand(command, (stdout, stderr) => {
-                let obj = {
+                let response = {
                     stdout: stdout,
                     stderr: stderr
                 }
-                resolve(obj);
+
+                resolve(response);
             }); 
+
         })
+
         return promise;
     }
 
 
-    public setKubeconfig(callback: ICallback) {
-        let command = `
-            aws eks update-kubeconfig --region ${this.infoData.AWSCredentials.aws_default_region} --name ${this.infoData.clusterName}
-        `
-        super.shellCommand(command, (stdout, stderr) => {
-            callback(stdout, stderr);
+    public setKubeconfig(): any {
+
+        const promise = new Promise((resolve, reject) => {
+
+            let command = `
+                aws eks update-kubeconfig --region ${this.infoData.AWSCredentials.aws_default_region} --name ${this.infoData.clusterName}
+            `
+            super.shellCommand(command, (stdout, stderr) => {
+                let response = {
+                    stdout: stdout,
+                    stderr: stderr
+                }
+
+                resolve(response);
+            });
+
         });
+
+        return promise;
     }
 
 
-    public showNodes(callback: ICallback) {
-        let command = `
-            kubectl get nodes
-        `
-        super.shellCommand(command, (stdout, stderr) => {
-            return callback(stdout, stderr);
+    public showNodes(): any {
+
+        const promise = new Promise((resolve, reject) => {
+        
+            let command = `
+                kubectl get nodes
+            `
+            super.shellCommand(command, (stdout, stderr) => {
+                
+                let response = {
+                    stdout: stdout,
+                    stderr: stderr
+                }
+
+                resolve(response);
+            });
+
         });
+
+        return promise;
     }
 
 }
+
 
 export default Eks;

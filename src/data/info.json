@@ -14,7 +14,8 @@
             "name": "ingress-nginx",
             "controller": "LoadBalancer",
             "namespace": "ingress-nginx/ingress-nginx",
-            "version": "4.0.18"
+            "version": "4.0.18",
+            "serviceName": "ingress-nginx-controller"
         }
     } 
 }
