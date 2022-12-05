@@ -8,7 +8,7 @@ export interface Iinfo {
         aws_secret_access_key: string,
         aws_default_region: string
     },
-    helm: {
+    ingress: {
         install: {
             ingressNginxUrl: string,
             name: string,
@@ -16,6 +16,11 @@ export interface Iinfo {
             namespace:  string,
             version: string,
             serviceName: string
+        }
+    },
+    rancher: {
+        install: {
+            
         }
     }
 }
