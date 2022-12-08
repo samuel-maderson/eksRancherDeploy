@@ -20,7 +20,21 @@ export interface Iinfo {
     },
     rancher: {
         install: {
-            
+            rancherServerUrl: string,
+            name: string,
+            controller: string,
+            namespace: string,
+            serviceName: string,
+            jetstack: string,
+            jetstackUrl: string,
+            serverUrl: string,
+            serverPassword: string
+        },
+        certManager: {
+            url: string,
+            namespace: string,
+            serviceName: string,
+            version: string
         }
     }
 }

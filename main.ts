@@ -1,16 +1,22 @@
-import { IngressActions, EksActions } from './src/resources/wrapper';
+import { IngressActions, EksActions, RancherActions } from './src/resources/wrapper';
  
 
 try {
 
     EksActions()
     .then((r) => {
-        console.log('result', r);
+        console.log('eks ok');
         if (r) {
             IngressActions()
             .then((r) => {
                 if (r) {
-                    console.log('ingress ok')
+                    console.log('ingress ok');
+                    RancherActions()
+                    .then((r) => {
+                        if (r) {
+                            console.log('rancher ok');
+                        }
+                    });
                 }
             });
         }
