@@ -126,7 +126,7 @@ class Rancher extends Root {
         const promise = new Promise((resolve, reject) => {
 
             let command = `
-                kubectl create namespace ${this.infoData.rancher.install.namespace} | true && \
+                kubectl create namespace ${this.infoData.rancher.install.namespace} | true &
                 helm install rancher ${this.infoData.rancher.install.serviceName} \
                     --namespace ${this.infoData.rancher.install.namespace} \
                     --set hostname=${this.infoData.rancher.install.serverUrl} \

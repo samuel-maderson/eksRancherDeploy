@@ -17,7 +17,7 @@ try {
                             console.log('rancher ok');
                         }
                     });
-                }
+                }   
             });
         }
     });

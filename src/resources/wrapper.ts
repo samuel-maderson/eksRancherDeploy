@@ -8,7 +8,7 @@ import Rancher from './rancher';
 export const EksActions = () => {
 
     return new Promise((resolve, reject) => {
-        /*
+        
         const eks = new Eks(infoFile);
         eks.shellCommand(`echo -n '\\033[0;32m [+] Creating cluster: ${infoFile.clusterName}' | tr -d '\n'`, (stdout, stderr) => {console.log(stdout);});
         eks.createCluster()
@@ -41,9 +41,8 @@ export const EksActions = () => {
                 })
 
             });
-        });*/
+        });
 
-        resolve(true);
     });
     
 
@@ -55,7 +54,7 @@ export const IngressActions = () => {
 
     return new Promise((resolve, reject) => {
 
-        /*
+        
         const ingress = new Ingress(infoFile)
 
         ingress.shellCommand(`echo -n '\\033[0;32m [+] Adding ingress repo: ${infoFile.ingress.install.ingressNginxUrl}' | tr -d '\n'`, (stdout, stderr) => {console.log(stdout);});
@@ -105,9 +104,8 @@ export const IngressActions = () => {
 
                 
             });
-        });*/
+        });
 
-        resolve(true);
     });
 
 }
@@ -116,7 +114,7 @@ export const IngressActions = () => {
 
 
 export const RancherActions = () => {
-
+    
     return new Promise((resolve, reject) => {
 
         const rancher = new Rancher(infoFile)

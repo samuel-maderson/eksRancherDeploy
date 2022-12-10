@@ -63,7 +63,6 @@ class Ingress extends Root {
         const promise = new Promise((resolve, reject) => {
 
             let command = `
-                kubectl create namespace ${this.infoData.ingress.install.name} | true &&
                 helm upgrade --install \
                     ${this.infoData.ingress.install.name} ${this.infoData.ingress.install.namespace} \
                     --namespace ${this.infoData.ingress.install.name} \

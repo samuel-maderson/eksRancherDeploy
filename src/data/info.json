@@ -2,7 +2,7 @@
     "nodeType": "t3.medium",
     "nodesMin": 3,
     "nodesMax": 4,
-    "clusterName": "eks-cluster05",
+    "clusterName": "eks-cluster01",
     "AWSCredentials": {
         "aws_access_key_id": "",
         "aws_secret_access_key": "",
@@ -20,11 +20,11 @@
     },
     "rancher": {
         "install": {
-            "rancherServerUrl": "https://releases.rancher.com/server-charts/latest",
-            "name": "rancher-latest",
+            "rancherServerUrl": "https://releases.rancher.com/server-charts/stable",
+            "name": "rancher-stable",
             "controller": "LoadBalancer",
             "namespace": "cattle-system",
-            "serviceName": "rancher-latest/rancher",
+            "serviceName": "rancher-stable/rancher",
             "jetstack": "jetstack",
             "jetstackUrl": "https://charts.jetstack.io",
             "serverUrl": "rancher.my.org",

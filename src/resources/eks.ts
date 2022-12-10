@@ -14,7 +14,8 @@ class Eks extends Root {
             let command = `
                 eksctl create cluster \
                     --name ${this.infoData.clusterName} --nodes-min ${this.infoData.nodesMin} \
-                    --nodes-max ${this.infoData.nodesMax}  --node-type ${this.infoData.nodeType}
+                    --nodes-max ${this.infoData.nodesMax}  --node-type ${this.infoData.nodeType} \
+                    --managed
             `
 
             super.shellCommand(command, (stdout, stderr) => {
