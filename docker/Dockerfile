@@ -36,4 +36,3 @@ RUN chmod +x /tmp/kubectl && mv /tmp/kubectl /usr/local/bin/kubectl
 WORKDIR /opt
 RUN git clone $REPO_DIR
 WORKDIR /opt/$PROJECT_DIR
-
