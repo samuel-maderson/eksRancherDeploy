@@ -35,4 +35,10 @@ RUN chmod +x /tmp/kubectl && mv /tmp/kubectl /usr/local/bin/kubectl
 
 WORKDIR /opt
 RUN git clone $REPO_DIR
-WORKDIR /opt/$PROJECT_DIR
+
+COPY run.sh /opt/${PROJECT_DIR}
+RUN chmod +x /opt/${PROJECT_DIR}/run.sh
+
+WORKDIR /opt/${PROJECT_DIR}
+
+CMD ["./run.sh"]

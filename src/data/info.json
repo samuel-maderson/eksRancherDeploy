@@ -2,6 +2,7 @@
     "nodeType": "t3.medium",
     "nodesMin": 3,
     "nodesMax": 4,
+    "roleArn": "arn:aws:iam::060923659924:role/EKSRole",
     "clusterName": "eks-cluster01",
     "AWSCredentials": {
         "aws_access_key_id": "",
