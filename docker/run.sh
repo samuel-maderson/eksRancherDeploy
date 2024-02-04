@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export AWS_ACCESS_KEY_ID=AKIAQ4L2VI2KBAWVYXOK
-export AWS_SECRET_ACCESS_KEY=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
-export AWS_DEFAULT_REGION=
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export AWS_DEFAULT_REGION=us-east-1
 
 cd /opt/eksRancherDeploy && ts-node main.ts

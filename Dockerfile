@@ -7,8 +7,9 @@ ARG REPO_DIR=https://github.com/samuel-maderson/eksRancherDeploy.git
 ARG PROJECT_DIR=eksRancherDeploy
 
 RUN apt update
-RUN apt install git wget xz-utils curl -y
+RUN apt install git wget xz-utils curl unzip vim -y
 
+COPY . /opt/eksRancherDeploy
 WORKDIR /opt
 RUN wget $NODE_URL$NODE_FILE
 RUN tar -xvf $NODE_FILE
@@ -19,6 +20,11 @@ RUN mv /opt/$NODE_DIR/bin/* /usr/bin/
 
 RUN npm install typescript -g
 RUN npm install ts-node -g
+
+# Install awscli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
 
 # Install eksctl
 RUN curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
@@ -34,11 +40,9 @@ RUN chmod +x /tmp/kubectl && mv /tmp/kubectl /usr/local/bin/kubectl
 
 
 WORKDIR /opt
-RUN git clone $REPO_DIR
 
-COPY run.sh /opt/${PROJECT_DIR}
-RUN chmod +x /opt/${PROJECT_DIR}/run.sh
+RUN chmod +x /opt/${PROJECT_DIR}/docker/run.sh
 
 WORKDIR /opt/${PROJECT_DIR}
 
-CMD ["./run.sh"]
+ENTRYPOINT ["/bin/bash"]

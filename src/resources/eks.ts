@@ -11,12 +11,10 @@ class Eks extends Root {
 
         const promise = new Promise((resolve, reject) => {
 
-            console.log(this.infoData.roleArn);
             let command = `
                 eksctl create cluster \
                     --name ${this.infoData.clusterName} --nodes-min ${this.infoData.nodesMin} \
                     --nodes-max ${this.infoData.nodesMax}  --node-type ${this.infoData.nodeType} \
-                    --role-arn ${this.infoData.roleArn} --region ${this.infoData.AWSCredentials.aws_default_region} \
                     --managed
             `
 
