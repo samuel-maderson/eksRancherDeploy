@@ -106,26 +106,6 @@ cert-manager-webhook-5b9ddcfbb8-486mg      1/1     Running   0          21s
                 helm install rancher rancher-stable/rancher                     --namespace cattle-system                     --set hostname=rancher.my.org                     --set bootstrapPassword=admin                     --set ingress.ingressClassName=nginx
             
  [+] Installing rancher server: rancher-stable
-rancher ok
-
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# 
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# w
- 22:58:09 up  7:49,  0 users,  load average: 0.60, 0.52, 0.46
-USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# 
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# 
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# kubectl get nodes
-
-
-Unable to locate credentials. You can configure credentials by running "aws configure".
-Unable to connect to the server: getting credentials: exec: executable aws failed with exit code 253
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# 
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# export AWS_ACCESS_KEY_ID=AKIA3ILW33ZVUT3FSJV2
-export AWS_SECRET_ACCESS_KEY=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
-export AWS_DEFAULT_REGION=us-east-1
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# 
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# 
-root@3db4c1212b68:/opt/eksRancherDeploy/docker# 
 root@3db4c1212b68:/opt/eksRancherDeploy/docker# kubectl get nodes
 NAME                             STATUS   ROLES    AGE     VERSION
 ip-192-168-22-88.ec2.internal    Ready    <none>   3m33s   v1.27.9-eks-5e0fdde
