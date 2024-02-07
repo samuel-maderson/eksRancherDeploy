@@ -43,6 +43,6 @@ WORKDIR /opt
 
 RUN chmod +x /opt/${PROJECT_DIR}/docker/run.sh
 
-WORKDIR /opt/${PROJECT_DIR}
+WORKDIR /opt/${PROJECT_DIR}/docker
 
 ENTRYPOINT ["/bin/bash"]
